@@ -20,10 +20,10 @@
 </template>
 
 <script>
-    import PathNotFoundView from './PathNotFoundView.vue';
-    import NavBarView from '../components/NavBarView.vue';
-    import FooterView from '../components/FooterView.vue';
-    import ModalView from '../components/ModalView.vue';
+    import PathNotFoundView from '../Error/PathNotFoundView.vue';
+    import NavBarView from '../../components/Main/NavBarView.vue';
+    import FooterView from '../../components/Main/FooterView.vue';
+    import ModalView from '../../components/PopUps/ModalView.vue';
     import {
         mapState
     } from 'vuex';
@@ -80,8 +80,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     .preview {
         display: flex;

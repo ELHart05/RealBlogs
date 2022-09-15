@@ -59,15 +59,15 @@
     import {
         auth,
         db
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         deleteUser
     } from 'firebase/auth';
-    import PathNotFoundView from './PathNotFoundView.vue';
-    import NavBarView from '../components/NavBarView.vue';
-    import FooterView from '../components/FooterView.vue';
-    import LoadingView from '../components/LoadingView.vue';
-    import ModalView from '../components/ModalView.vue';
+    import PathNotFoundView from '../Error/PathNotFoundView.vue';
+    import NavBarView from '../../components/Main/NavBarView.vue';
+    import FooterView from '../../components/Main/FooterView.vue';
+    import LoadingView from '../../components/PopUps/LoadingView.vue';
+    import ModalView from '../../components/PopUps/ModalView.vue';
     import {
         mapState
     } from 'vuex';
@@ -277,14 +277,11 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     .profile {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        @include flex(center,center,column);
         padding: 70px 25px;
 
         h2 {
@@ -295,10 +292,7 @@
         }
 
         form {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            @include flex(center,center,column);
             margin: 32px 0;
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
@@ -309,9 +303,7 @@
             row-gap: 32px;
 
             .admin {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flex(center,center,row);
                 transition: .5s;
                 padding: 8px 24px 8px 15px;
                 border: none;
@@ -354,10 +346,7 @@
             }
 
             .inputs {
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                flex-direction: column;
+                @include flex(flex-start,flex-start,column);
                 width: 100%;
 
                 .protected {
@@ -382,11 +371,9 @@
             }
 
             div {
-                display: flex;
+                @include flex(center,center,row);
                 gap: 15px;
                 flex-wrap: wrap;
-                align-items: center;
-                justify-content: center;
 
                 button {
                     @extend %btn;

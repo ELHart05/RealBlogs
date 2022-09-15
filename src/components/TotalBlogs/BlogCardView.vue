@@ -71,13 +71,13 @@
         blogsRef,
         storage,
         auth
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         deleteObject,
         ref
     } from 'firebase/storage';
-    import LoadingView from './LoadingView.vue';
-    import ModalView from './ModalView.vue';
+    import LoadingView from '../PopUps/LoadingView.vue';
+    import ModalView from '../PopUps/ModalView.vue';
     import {
         mapState
     } from 'vuex';
@@ -332,7 +332,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     @keyframes rotation {
         100% {
@@ -341,9 +341,7 @@
     }
 
     .card-wrapper {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        @include flex(center,center,column);
         border-radius: 8px;
         min-height: 420px;
         text-decoration: none;
@@ -357,9 +355,7 @@
         }
 
         .card-img {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center,center,row);
             position: relative;
             width: 100%;
             max-height: 200px;
@@ -410,20 +406,18 @@
             }
 
             .edit {
-                background-image: url(../assets/Icons/edit-regular.svg);
+                background-image: url(../../assets/Icons/edit-regular.svg);
                 right: 50px;
             }
 
             .delete {
-                background-image: url(../assets/Icons/trash-regular.svg);
+                background-image: url(../../assets/Icons/trash-regular.svg);
             }
         }
 
 
         .card-content {
-            display: flex;
-            align-items: flex-start;
-            flex-direction: column;
+            @include flex(center,flex-start,column);
             padding: 32px 16px;
             height: 100%;
             width: 100%;
@@ -440,8 +434,7 @@
             }
 
             a {
-                display: flex;
-                align-items: center;
+                @include flex(center,center,row);
                 font-weight: 500;
                 font-size: 12px;
                 color: black;

@@ -89,11 +89,11 @@
 <script>
     import {
         auth
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         signOut
     } from 'firebase/auth';
-    import NotificationsView from './NotificationsView.vue';
+    import NotificationsView from '../PopUps/NotificationsView.vue';
     import {
         mapState
     } from 'vuex';
@@ -146,15 +146,12 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     header {
         position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        @include flex(space-between,center,row);
         padding: 30px;
         background-color: #fff;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
@@ -215,10 +212,8 @@
             position: relative;
 
             svg {
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 position: absolute;
+                @include flex(center,center,row);
                 border: 1px solid black;
                 top: -5px;
                 right: -2px;
@@ -253,6 +248,10 @@
                 right: 0;
             }
 
+            @include width(230px){
+                top: 205px;
+            }
+
             &::before {
                 content: "";
                 position: absolute;
@@ -270,9 +269,7 @@
             }
 
             .infos {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include flex(center,center,row);
                 padding: 15px;
                 column-gap: 15px;
 
@@ -281,9 +278,7 @@
                     color: black;
 
                     .notificationCount {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
+                        @include flex(center,center,row);
                         position: absolute;
                         border: 1px solid black;
                         top: -8px;
@@ -313,15 +308,13 @@
 
             .options {
                 padding: 15px;
-                align-items: flex-start;
                 display: flex;
+                align-items: flex-start;
                 flex-direction: column;
                 row-gap: 15px;
 
                 .option {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
+                    @include flex(flex-start,center,row);
                     color: white;
                     font-weight: 300;
                     cursor: pointer;
@@ -358,9 +351,7 @@
 
         @include width(750px) {
             position: fixed;
-            align-items: flex-start;
-            justify-content: flex-start;
-            flex-direction: column;
+            @include flex(flex-start,flex-start,column);
             padding: 20px;
             width: 70%;
             max-width: 250px;
@@ -376,6 +367,7 @@
         position: relative;
         display: none;
         cursor: pointer;
+        top: 2px;
 
         @include width(750px) {
             display: flex;
@@ -388,10 +380,7 @@
         display: none;
 
         @include width(750px) {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center,center,row);
             position: absolute;
             border: 1px solid black;
             top: 22px;

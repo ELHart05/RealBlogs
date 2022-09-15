@@ -33,10 +33,10 @@
 </script>
 
 <style lang="scss" scoped>
+    @use '../../assets/sass/mixins.scss'as *;
+
     .modal {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex(center,center,row);
         position: fixed;
         height: 100vh;
         top: 0;
@@ -47,10 +47,7 @@
         opacity: 1;
 
         .modalContent {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            @include flex(center,center,column);
             border-radius: 8px;
             padding: 40px 30px;
             background-color: white;

@@ -47,7 +47,14 @@
                     <div class="new-comment" v-if="userState">
                         <div class="commenter" :style="{background: color}">
                             {{ initialName }}
-                            <img src="/img/user-crown-light.f51783ab.svg" alt="#" v-if="isAdmin"></div>
+                            <svg v-if="isAdmin" aria-hidden="true" focusable="false" data-prefix="fal"
+                                data-icon="user-crown" class="svg-inline--fa fa-user-crown fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M313.6 320c-28.71 0-42.6 16-89.6 16-47.09 0-60.82-16-89.6-16C60.17 320 0 380.17 0 454.4v9.6c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48v-9.6c0-74.23-60.17-134.4-134.4-134.4zM416 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16v-9.6C32 397.94 77.94 352 134.4 352c19.38 0 39.33 16 89.6 16 49.4 0 70.66-16 89.6-16 56.46 0 102.4 45.94 102.4 102.4v9.6zM224 288c70.7 0 128-57.31 128-128V0l-64 32-64-32-64 32L96 0v160c0 70.69 57.31 128 128 128zM128 51.78l32 16 64-32 64 32 32-16V112H128V51.78zm0 92.22h192v16c0 52.93-43.06 96-96 96s-96-43.07-96-96v-16z">
+                                </path>
+                            </svg>
+                        </div>
                         <div class="comment-content">
                             <textarea placeholder="Drop a comment on this post!" v-model="comment"></textarea>
                             <div class="buttons">
@@ -111,11 +118,11 @@
 <script>
     import {
         filter
-    } from '../assets/badWords.js';
+    } from '../../assets/badWords.js';
     import {
         db,
         storage
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         doc,
         getDoc,
@@ -126,10 +133,10 @@
         ref,
         deleteObject
     } from 'firebase/storage';
-    import NavBarView from '../components/NavBarView.vue';
-    import FooterView from '../components/FooterView.vue';
-    import LoadingView from '../components/LoadingView.vue';
-    import ModalView from '../components/ModalView.vue';
+    import NavBarView from '../../components/Main/NavBarView.vue';
+    import FooterView from '../../components/Main/FooterView.vue';
+    import LoadingView from '../../components/PopUps/LoadingView.vue';
+    import ModalView from '../../components/PopUps/ModalView.vue';
     import {
         mapGetters,
         mapState
@@ -441,7 +448,7 @@
             },
             getLikesAndComments() {
                 var adminBadge =
-                    `<img src="/img/user-crown-light.f51783ab.svg" style="position: absolute; top: -13px; right: -4px; border: transparent; height: 25px; width: 25px; border: 1px solid black; background-color: white; border-radius: 50%;" alt="#">`;
+                    `<img src="../../assets/Icons/user-crown-light.f51783ab.svg" style="position: absolute; top: -13px; right: -4px; border: transparent; height: 25px; width: 25px; border: 1px solid black; background-color: white; border-radius: 50%;" alt="#">`;
                 for (let i = 0; i < this.currentBlog[0].likes.length; i++) {
                     const docRef = doc(db, 'users', this.currentBlog[0].likes[i]);
                     getDoc(docRef).then((res) => {
@@ -474,8 +481,8 @@
 </script>
 
 <style lang="scss">
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     @keyframes rotation {
         100% {
@@ -495,9 +502,7 @@
 
 
         .intro {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include flex(space-between, center, row);
             flex-wrap: wrap;
             gap: 10px;
 
@@ -537,12 +542,12 @@
                 }
 
                 .edit {
-                    background-image: url(../assets/Icons/edit-regular.svg);
+                    background-image: url(../../assets/Icons/edit-regular.svg);
                     right: 50px;
                 }
 
                 .delete {
-                    background-image: url(../assets/Icons/trash-regular.svg);
+                    background-image: url(../../assets/Icons/trash-regular.svg);
                 }
             }
         }
@@ -553,9 +558,7 @@
         }
 
         .blogImg {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center, center, row);
             height: 610px;
             border: 1px solid black;
             max-width: 850px;
@@ -747,9 +750,7 @@
                             }
 
                             .buttons {
-                                display: flex;
-                                align-items: flex-start;
-                                justify-content: flex-end;
+                                @include flex(flex-end, flex-start, row);
                                 flex-wrap: wrap;
                                 gap: 10px;
                                 margin-top: 0;

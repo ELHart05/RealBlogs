@@ -30,14 +30,14 @@
 <script>
     import {
         auth
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         sendPasswordResetEmail
     } from 'firebase/auth';
-    import AngleView from '../components/AngleView.vue';
-    import BackgroundView from '../components/BackgroundView.vue';
-    import LoadingView from '../components/LoadingView.vue';
-    import ModalView from '../components/ModalView.vue';
+    import AngleView from '../../components/Auth/AngleView.vue';
+    import BackgroundView from '../../components/Auth/BackgroundView.vue';
+    import LoadingView from '../../components/PopUps/LoadingView.vue';
+    import ModalView from '../../components/PopUps/ModalView.vue';
     export default {
         name: "ResetPasswordView",
         components: {
@@ -88,14 +88,11 @@
 </script>
 
 <style lang="scss">
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     .forgot-password-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        @include flex(center,center,row);
         height: 100vh;
         overflow: hidden;
 
@@ -110,10 +107,7 @@
 
             form {
                 position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
+                @include flex(center,center,column);
                 padding: 0 50px;
                 flex: 1;
 

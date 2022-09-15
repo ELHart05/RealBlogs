@@ -34,7 +34,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     .main {
         display: flex;

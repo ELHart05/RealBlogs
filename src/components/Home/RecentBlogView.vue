@@ -11,7 +11,7 @@
     import {
         mapGetters
     } from 'vuex';
-    import BlogCardView from './BlogCardView.vue';
+    import BlogCardView from '../TotalBlogs/BlogCardView.vue';
     export default {
         name: "RecentBlogView",
         components: {
@@ -24,7 +24,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     .recent-blogs {
         display: flex;

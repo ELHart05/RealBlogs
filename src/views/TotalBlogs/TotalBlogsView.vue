@@ -33,14 +33,14 @@
 </template>
 
 <script>
-    import NavBarView from '../components/NavBarView.vue';
-    import BlogCardView from '../components/BlogCardView.vue';
-    import FooterView from '../components/FooterView.vue';
+    import NavBarView from '../../components/Main/NavBarView.vue';
+    import BlogCardView from '../../components/TotalBlogs/BlogCardView.vue';
+    import FooterView from '../../components/Main/FooterView.vue';
     import {
         mapState
     } from 'vuex';
     export default {
-        name: "BlogsView",
+        name: "TotalBlogsView",
         components: {
             NavBarView,
             BlogCardView,
@@ -152,20 +152,15 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     .blogs {
         background-color: #f1f1f1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        @include flex(center,center,column);
         padding: 100px 25px;
 
         .params {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            @include flex(space-between,center,row);
             flex-wrap: wrap;
             width: 100%;
             column-gap: 10px;
@@ -302,9 +297,7 @@
         }
 
         .emptyBlogContainer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flex(center,center,row);
         }
     }
 </style>

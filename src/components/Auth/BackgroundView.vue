@@ -9,12 +9,12 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/sass/mixins.scss'as *;
+  @use '../../assets/sass/mixins.scss'as *;
 
   .background {
     width: 62%;
     flex: 2;
-    background-image: url(../assets/background.png);
+    background-image: url(../../assets/background.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

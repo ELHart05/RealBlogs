@@ -2,19 +2,19 @@ import {
   createRouter,
   createWebHistory
 } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/RegisterView.vue'
-import BlogsView from '../views/BlogsView.vue'
-import ResetPasswordView from '../views/ResetPasswordView.vue'
-import ProfileView from '../views/ProfileView.vue'
-import AdminView from '../views/AdminView.vue'
-import AdminRequestView from '../views/AdminRequestView.vue'
-import CreatePostView from '../views/CreatePostView.vue'
-import PreviewNewPostView from '../views/PreviewNewPostView.vue';
-import ViewBlog from '../views/ViewBlog.vue';
-import EditPostView from '../views/EditPostView.vue';
-import PathNotFoundView from '../views/PathNotFoundView.vue'
+import HomeView from '../views/Home/HomeView.vue'
+import LoginView from '../views/Auth/LoginView.vue'
+import RegisterView from '../views/Auth/RegisterView.vue'
+import TotalBlogsView from '../views/TotalBlogs/TotalBlogsView.vue'
+import ResetPasswordView from '../views/Auth/ResetPasswordView.vue'
+import ProfileView from '../views/Profile/ProfileView.vue'
+import AdminView from '../views/Admin/AdminView.vue'
+import AdminRequestView from '../views/Admin/AdminRequestView.vue'
+import CreatePostView from '../views/Post/CreatePostView.vue'
+import PreviewNewPostView from '../views/Post/PreviewNewPostView.vue';
+import ViewBlog from '../views/Post/ViewBlog.vue';
+import EditPostView from '../views/Post/EditPostView.vue';
+import PathNotFoundView from '../views/Error/PathNotFoundView.vue'
 
 const routes = [{
     path: '/',
@@ -51,7 +51,7 @@ const routes = [{
   {
     path: '/blogs',
     name: 'blogs',
-    component: BlogsView,
+    component: TotalBlogsView,
     meta: {
       title: 'Blogs'
     }

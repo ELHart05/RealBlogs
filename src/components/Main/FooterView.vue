@@ -71,12 +71,12 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     footer {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        @include flex(space-between,flex-end,row);
         padding: 100px 25px;
         background-color: #303030;
         color: white;
@@ -97,9 +97,7 @@
 
             ul {
                 transition: .5s;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                @include flex(space-between,flex-start,column);
                 width: 50%;
 
                 a {
@@ -125,23 +123,18 @@
 
             @include width(800px) {
                 width: 100%;
-                flex-direction: column;
-                justify-content: center;
-                align-content: center;
+                @include flex(center,center,column);
             }
 
         }
 
         .right-side {
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
+            @include flex(flex-end,flex-end,row);
             width: 50%;
 
             @include width(800px) {
                 width: 100%;
-                align-items: center;
-                justify-content: center;
+                @include flex(center,center,row);
                 text-align: center;
             }
         }
@@ -158,13 +151,10 @@
         width: 50%;
 
         .icons-ul {
-            display: flex;
-            flex-direction: row;
             column-gap: 10px;
             margin-top: 40px;
             width: 100%;
-            align-items: flex-start;
-            justify-content: flex-start;
+            @include flex(flex-start,flex-start,row);
 
             svg {
                 cursor: pointer;
@@ -181,18 +171,14 @@
             }
 
             @include width(800px) {
-                align-items: center;
-                justify-content: center;
+                @include flex(center,center,row);
                 margin-top: 30px;
             }
         }
 
         @include width(800px) {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
+            @include flex(center,center,column);
             row-gap: 5px;
         }
     }

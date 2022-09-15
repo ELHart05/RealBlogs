@@ -45,7 +45,7 @@
     import {
         db,
         auth
-    } from '../firebase/index.js'
+    } from '../../firebase/index.js'
     import ModalView from './ModalView.vue';
     import LoadingView from './LoadingView.vue';
     export default {
@@ -221,8 +221,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/classStyles.scss'as *;
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     .notifications {
         position: fixed;
@@ -231,9 +231,7 @@
         width: 100%;
         height: 100vh;
         z-index: 98;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex(center,center,row);
         background-color: rgba(0, 0, 0, 0.7);
 
         .modal-content {
@@ -246,9 +244,7 @@
             max-width: 400px;
 
             .params {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+                @include flex(space-between,center,row);
                 gap: 10px;
                 flex-wrap: wrap;
 

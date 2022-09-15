@@ -19,14 +19,12 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     .container {
         padding: 125px 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex(space-between,center,row);
 
         a {
             @extend %btn;

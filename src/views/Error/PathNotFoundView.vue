@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <img src="../assets/error.png" alt="#">
+    <img src="../../assets/error.png" alt="#">
     <p>We're sorry, the page you requested could not be found, Please go back to the homepage.
       <span v-if="!userState">Or create account to have access!</span>
       <span v-if="userState && !isAdmin">Or send a request to become an admin for full controll!</span>
@@ -27,17 +27,14 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '../assets/sass/mixins.scss'as *;
+  @use '../../assets/sass/mixins.scss'as *;
 
   .error {
     position: fixed;
     text-align: center;
     padding: 0 20px;
     background-color: #f7f7f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    @include flex(center,center,column);
     height: 100vh;
     width: 100%;
     z-index: 100;
@@ -67,10 +64,8 @@
     }
 
     .routers {
-      display: flex;
+      @include flex(center,center,row);
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
       margin-top: 25px;
       gap: 15px;
 

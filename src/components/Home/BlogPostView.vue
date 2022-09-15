@@ -34,7 +34,7 @@
         </div>
         <div class="blogImg" :class="{setHight: !imgLoaded}">
             <img v-if="post.welcomeScreen" @load="toggleLoading" :class="{displayed: imgLoaded}"
-                :src="require(`../assets/${post.photo}`)" alt="#">
+                :src="require(`../../assets/${post.photo}`)" alt="#">
             <img v-else ref="blogPhoto" @load="toggleLoading" :src="post.blogCoverFileURL"
                 :class="{blogCoverPhoto: true, displayed: imgLoaded}" alt="#">
             <span :class="{loader: true, welcomeLoader: post.welcomeScreen}" v-if="!imgLoaded"></span>
@@ -75,26 +75,13 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
 
     @keyframes rotation {
         100% {
             transform: rotate(360deg);
         }
     }
-
-    %flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    %flex-start {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
 
     .blog-post-container:nth-child(even) {
         .blogImg {
@@ -107,8 +94,7 @@
     }
 
     .blog-post-container {
-        @extend %flex;
-        flex-direction: row;
+        @include flex(center,center,row);
         height: 650px;
 
         @include width(700px) {
@@ -118,8 +104,7 @@
 
         .blog-content {
             width: 100%;
-            @extend %flex;
-            flex-direction: column;
+            @include flex(center,center,column);
             flex: 3;
             height: 100%;
 
@@ -229,7 +214,7 @@
         }
 
         .blogImg {
-            @extend %flex;
+            @include flex(center,center,row);
             flex: 4;
             height: 100%;
             overflow: hidden;

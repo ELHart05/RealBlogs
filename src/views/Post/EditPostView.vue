@@ -43,7 +43,7 @@
         blogsRef,
         db,
         storage
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         updateDoc,
         doc,
@@ -55,11 +55,11 @@
         uploadBytes,
         deleteObject
     } from 'firebase/storage';
-    import PathNotFoundView from './PathNotFoundView.vue';
-    import NavBarView from '../components/NavBarView.vue';
-    import FooterView from '../components/FooterView.vue';
-    import LoadingView from '../components/LoadingView.vue';
-    import ModalView from '../components/ModalView.vue';
+    import PathNotFoundView from '../Error/PathNotFoundView.vue';
+    import NavBarView from '../../components/Main/NavBarView.vue';
+    import FooterView from '../../components/Main/FooterView.vue';
+    import LoadingView from '../../components/PopUps/LoadingView.vue';
+    import ModalView from '../../components/PopUps/ModalView.vue';
     import {
         mapState
     } from 'vuex';
@@ -235,8 +235,8 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     .create-post {
         display: flex;
@@ -249,9 +249,7 @@
         }
 
         .post-publish-header {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            @include flex(flex-start,center,row);
             gap: 15px;
             flex-wrap: wrap;
 
@@ -357,9 +355,7 @@
         }
 
         .option-buttons {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
+            @include flex(flex-start,center,row);
             gap: 15px;
             flex-wrap: wrap;
 

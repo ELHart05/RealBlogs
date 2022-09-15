@@ -22,16 +22,16 @@
 <script>
     import {
         db
-    } from '../firebase/index.js';
+    } from '../../firebase/index.js';
     import {
         doc,
         updateDoc
     } from 'firebase/firestore';
-    import NavBarView from '../components/NavBarView.vue';
-    import PathNotFoundView from './PathNotFoundView.vue';
-    import FooterView from '../components/FooterView.vue';
-    import LoadingView from '../components/LoadingView.vue';
-    import ModalView from '../components/ModalView.vue';
+    import NavBarView from '../../components/Main/NavBarView.vue';
+    import PathNotFoundView from '../Error/PathNotFoundView.vue';
+    import FooterView from '../../components/Main/FooterView.vue';
+    import LoadingView from '../../components/PopUps/LoadingView.vue';
+    import ModalView from '../../components/PopUps/ModalView.vue';
     import {
         mapState
     } from 'vuex';
@@ -115,14 +115,11 @@
 </script>
 
 <style lang="scss" scoped>
-    @use '../assets/sass/mixins.scss'as *;
-    @use '../assets/sass/classStyles.scss'as *;
+    @use '../../assets/sass/mixins.scss'as *;
+    @use '../../assets/sass/classStyles.scss'as *;
 
     .admin {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+        @include flex(center,center,column);
         padding: 70px 25px;
 
         h2 {
@@ -130,13 +127,11 @@
             margin-bottom: 16px;
             font-weight: 300;
             font-size: 32px;
+            padding: 0 10px;
         }
 
         form {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            @include flex(center,center,column);
             margin: 32px 0;
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
