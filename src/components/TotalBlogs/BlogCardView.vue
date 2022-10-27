@@ -11,12 +11,12 @@
         <div class="card-content">
             <h4>{{ card.blogTitle }}</h4>
             <h6>Posted on: <span>{{ dateFormat() }}</span> <span v-if="card.editTime">(edited)</span></h6>
-            <div class="tags">
+            <div class="tags homepage-padding">
                 <div class="tag" v-for="(tag,index) in card.blogTags" @click="filterPosts(tag)" :key="index">
                     {{ tag }}
                 </div>
             </div>
-            <div class="likes-comments-saved">
+            <div class="likes-comments-saved" v-if="!homePage">
                 <div class="likes">
                     <svg @click="addLike" ref="svgLike" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path ref="like" :class="{active: card.likes.includes(this.id)}"
@@ -88,7 +88,7 @@
             LoadingView,
             ModalView
         },
-        props: ["card", "postEdit"],
+        props: ["card", "postEdit", "homePage"],
         data() {
             return {
                 loading: false,
@@ -480,6 +480,10 @@
                         background-color: gray;
                     }
                 }
+            }
+
+            .homepage-padding{
+                padding-bottom: 15px;
             }
         }
 

@@ -25,7 +25,7 @@
         </div>
         <div :class="{blogsContainer: true, emptyBlogContainer: !currentBlogPosts.length>0}">
             <h2 v-if="!currentBlogPosts.length>0">No Posts Based On these Filter!</h2>
-            <BlogCardView v-else :postEdit="postEdit" :card="card" v-for="(card, index) in currentBlogPosts"
+            <BlogCardView v-else :postEdit="postEdit" :homePage="false" :card="card" v-for="(card, index) in currentBlogPosts"
                 :key="index" />
         </div>
     </section>

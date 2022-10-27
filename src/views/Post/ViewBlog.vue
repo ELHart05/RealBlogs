@@ -448,7 +448,7 @@
             },
             getLikesAndComments() {
                 var adminBadge =
-                    `<img src="../../assets/Icons/user-crown-light.f51783ab.svg" style="position: absolute; top: -13px; right: -4px; border: transparent; height: 25px; width: 25px; border: 1px solid black; background-color: white; border-radius: 50%;" alt="#">`;
+                    `<img src="https://i.postimg.cc/rsNrhTdx/user-crown-light.png" style="position: absolute; top: -13px; right: -4px; border: transparent; height: 25px; width: 25px; border: 1px solid black; background-color: white; border-radius: 50%;" alt="#">`;
                 for (let i = 0; i < this.currentBlog[0].likes.length; i++) {
                     const docRef = doc(db, 'users', this.currentBlog[0].likes[i]);
                     getDoc(docRef).then((res) => {

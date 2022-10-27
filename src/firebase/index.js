@@ -15,7 +15,7 @@ import {
 } from "firebase/storage";
 
 const firebaseConfig = {
-  //your firebase config sdk file here!
+  //your firebase sdk config here!
 };
 
 

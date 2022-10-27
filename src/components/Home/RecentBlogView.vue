@@ -2,7 +2,7 @@
     <section class="recent-blogs">
         <h3>View More Recent Blogs</h3>
         <div class="recent-blogs-grid">
-            <BlogCardView :card="card" v-for="(card, index) in recentBlogCards" :key="index" />
+            <BlogCardView :card="card" :homePage="true" v-for="(card, index) in recentBlogCards" :key="index" />
         </div>
     </section>
 </template>
